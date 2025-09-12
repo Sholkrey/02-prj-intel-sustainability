@@ -1,1 +1,160 @@
-/* Add your CSS here */
+/* === HERO SECTION STYLES === */
+
+/* Set Intel blue background for the whole page */
+body {
+  background: #0071c5; /* Intel blue */
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the header/hero section */
+header {
+  text-align: center;
+  padding: 48px 16px 24px 16px;
+}
+
+/* Intel logo styling */
+header img {
+  width: 120px; /* Adjust logo size */
+  margin-bottom: 18px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Headline styling */
+header h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 0 0 12px 0;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* Subheading styling */
+header p {
+  font-size: 1.15em;
+  color: #e0e0e0;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* === TIMELINE SECTION STYLES === */
+
+/* Timeline container uses Flexbox for horizontal scroll */
+section {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 28px;
+  padding: 36px 18px;
+  scroll-snap-type: x mandatory; /* Enables scroll snap */
+  scrollbar-color: #0071c5 #e0e0e0; /* Custom scrollbar colors */
+}
+
+/* Timeline milestone cards */
+section > div {
+  background: #fff;
+  color: #222;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px rgba(0,113,197,0.10);
+  min-width: 320px;
+  max-width: 340px;
+  flex: 0 0 auto;
+  padding: 22px 18px 24px 18px;
+  position: relative;
+  transition: 
+    transform 0.25s cubic-bezier(.4,2,.6,1),
+    box-shadow 0.25s;
+  scroll-snap-align: start; /* Snap each card */
+  cursor: pointer;
+  margin-bottom: 18px;
+  /* No fixed height so content can grow */
+}
+
+/* Card headline styles */
+section h2 {
+  color: #0071c5;
+  margin: 0 0 4px 0;
+  font-size: 1.3em;
+}
+
+section h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.1em;
+  color: #222;
+}
+
+/* Card images */
+section img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Card paragraph (details) */
+section > div p {
+  max-height: 60px; /* Hide extra details by default */
+  overflow: hidden;
+  transition: max-height 0.4s;
+  margin-bottom: 0;
+}
+
+/* === INTERACTIVITY: Reveal details and animate on hover === */
+section > div:hover {
+  transform: translateY(-10px) scale(1.04) rotate(-1deg);
+  box-shadow: 0 10px 32px rgba(0,113,197,0.18);
+  z-index: 2;
+}
+
+section > div:hover p {
+  max-height: 300px; /* Reveal more details */
+}
+
+/* === RESPONSIVE DESIGN: Stack cards vertically on small screens === */
+@media (max-width: 800px) {
+  section {
+    flex-direction: column;
+    overflow-x: visible;
+    gap: 20px;
+    padding: 18px 6px;
+    scroll-snap-type: none;
+  }
+  section > div {
+    min-width: unset;
+    max-width: 100%;
+  }
+}
+
+/* === SCROLLBAR STYLING (optional, for better look) === */
+section::-webkit-scrollbar {
+  height: 10px;
+}
+section::-webkit-scrollbar-thumb {
+  background: #0071c5;
+  border-radius: 5px;
+}
+section::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 5px;
+}
+
+/* === TIMELINE HINT TEXT === */
+body > p {
+  text-align: center;
+  color: #e0e0e0;
+  margin-bottom: 32px;
+  font-size: 1em;
+}
+
+/* === END OF CSS === */
+
+/* 
+  This CSS uses only beginner-friendly Flexbox and transitions.
+  - No grid or advanced selectors.
+  - All effects are explained in comments.
+  - For custom images, just use <img src="img/your-image.jpg"> in each card.
+*/
