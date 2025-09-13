@@ -97,17 +97,17 @@ section img {
 
 /* Card paragraph (details) */
 section > div p {
-  max-height: 60px; /* Hide extra details by default */
+  max-height: 0;        /* Hide all content */
   overflow: hidden;
-  transition: max-height 0.4s;
+  transition: max-height 0.4s, opacity 0.3s;
+  opacity: 0;           /* Fully transparent by default */
   margin-bottom: 0;
 }
 
 /* === INTERACTIVITY: Reveal details and animate on hover === */
-section > div:hover {
-  transform: translateY(-10px) scale(1.04) rotate(-1deg);
-  box-shadow: 0 10px 32px rgba(0,113,197,0.18);
-  z-index: 2;
+section > div:hover p {
+  max-height: 300px;    /* Reveal content */
+  opacity: 1;           /* Fade in */
 }
 
 section > div:hover p {
